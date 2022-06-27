@@ -1,0 +1,13 @@
+//to compress js files into gz
+gzip source.js --keep --best --force
+
+//--keep keep original files
+//--best use the best compression
+//--force enforce the compress
+
+//installation
+//macos - brew install gzip
+
+//add the header to response the request from web
+header "Content-Encoding", "gzip"
+//otherwise the web cannot decode the source.gz into source.js

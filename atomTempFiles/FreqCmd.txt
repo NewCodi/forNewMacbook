@@ -1,0 +1,24 @@
+Commands
+***************************************************************************************
+matter device factoryreset
+
+
+Compile
+***************************************************************************************
+idf.py -p /dev/tty.usbserial-0001 erase_flash flash
+idf.py -p /dev/tty.usbserial-0001 flash
+
+idf.py -p /dev/tty.usbserial-1410 flash
+idf.py -p /dev/tty.usbserial-1410 erase_flash flash
+
+UART
+***************************************************************************************
+screen /dev/tty.usbserial-0001 115200
+screen /dev/tty.usbserial-1410 115200
+
+Chip-tool
+***************************************************************************************
+./chip-tool evcharger write profile-id1 '{"startTime":0420, "stopTime":1114}' 17 2
+./chip-tool evcharger read profile-id1 17 2
+
+./chip-tool pairing ble-wifi 17 CT-Staff_24 Computime#2010 20202021 3840

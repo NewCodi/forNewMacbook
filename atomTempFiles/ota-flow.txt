@@ -1,0 +1,26 @@
+##reset matter IP network
+matter device factoryreset
+
+##cmd matter-device node:17 end:0 to query from provider at 123 node:0 end:0
+./chip-tool otasoftwareupdaterequestor announce-ota-provider {ProviderNodeId} 0 0 0 {RequestorNodeId} 0
+./chip-tool otasoftwareupdaterequestor announce-ota-provider 22 0 0 0 14 0
+
+##commission the matter-device into the IP network
+./chip-tool pairing ble-wifi 14 CT-Staff_24 Computime#2010 20202021 3840
+
+matter ota progress 
+##command the requestor to get the image
+##and run the update flow
+./chip-tool otasoftwareupdaterequestor announce-ota-provider 21 0 0 0 14 0
+
+## KVS file, what is that
+./chip-ota-provider-app --KVS /tmp/chip_kvs_provider -f ota.bin
+
+##commission the linux app into the current IP network (suitable for linux app)
+./chip-tool pairing onnetwork 21 20202021
+
+./chip-tool accesscontrol write acl '[{"fabricIndex": 1, "privilege": 5, "authMode": 2, "subjects": [112233], "targets": null}, {"fabricIndex": 1, "privilege": 3, "authMode": 2, "subjects": null, "targets": [{"cluster": 41, "endpoint": null, "deviceType": null}]}]' 21 0
+
+## add header to the image file
+./src/app/ota_image_tool.py create -v 0xDEAD -p 0xBEEF -vn 10 -vs "10.0" -da sha256 firmware.bin firmware.ota
+

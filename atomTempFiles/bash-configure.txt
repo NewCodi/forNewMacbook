@@ -1,0 +1,7 @@
+export PS1='\[\033[0;35m\]\u\[\033[0;33m\]@ubuntu\[\033[0;320m\]::\W\[\033[00m\]: '
+
+color = \[\033[0;35m\]
+
+user name = \u
+
+working directory = \W

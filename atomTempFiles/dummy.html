@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Index Redirect Page</title>
+  <style>
+    .header h3 {
+      padding-top: -5px;
+      padding-left: 50px;
+      font-weight: bold;
+      font-family: Arial,"sans-serif";
+      font-size: 17px;
+      color: #b6b6b6;
+      margin: -25px 0 -5px 0;
+    }
+    button{
+      background: #1070FF;
+      border-radius: 5px;
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.4);
+      color: #fff;
+      cursor: pointer;
+      display: block;
+      font-size: 1em;
+      height: 2.5em;
+      line-height: 2.5em;
+      margin-right: .25em;
+      padding: 0 1.5em;
+      text-align: center;
+    }
+    input{
+      display: none;
+    }
+    </style>
+    <script>
+  function openWindow() {
+    window.open("/evcWebApp");
+  }
+  </script>
+  </head>
+<body>
+  <div align="center">
+  <div>
+    <h3 id="title1">Redirect Page</h3>
+  </div>
+    <br><br>
+  <div class="buttonTag">
+    <button onclick="openWindow()">Click!</button>
+  </div>
+    </div>
+</body>
+</html>

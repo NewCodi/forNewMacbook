@@ -1,0 +1,4 @@
+//standby
+set_cp_connector_status 0
+//charging
+set_cp_connector_status 2

@@ -1,0 +1,5 @@
+idf.py menuconfig
+ -- config BLE to bluedroid mode
+
+
+ -- OTA enable (later or no need)

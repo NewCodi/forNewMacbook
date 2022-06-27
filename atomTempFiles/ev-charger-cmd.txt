@@ -1,0 +1,11 @@
+charger new simulation flow is updated.
+The uart commands to test:
+//cable is inserted
+sim_cp_cable 1
+//cable is removed
+sim_cp_cable 0
+
+//start charging
+set_cp_charging 1
+//stop charging
+set_cp_charging 0

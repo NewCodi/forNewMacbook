@@ -1,0 +1,53 @@
+
+
+E (351549) T-Clus: Get Att1 : 1234
+
+===========11111=================================
+
+I (353549) light-app-callbacks: PostAttributeChangeCallback - Cluster ID: '0xfc01', EndPoint ID: '0x02', Attribute ID: '0x0001'
+I (353549) light-app-callbacks: Unhandled cluster ID: 64513
+I (353559) light-app-callbacks: Current free heap: 99252
+
+E (353559) T-Clus: Set Att2 : 2022
+
+===========222222=================================
+
+
+E (355569) T-Clus: Get Att2 : Computime
+
+===========333333=================================
+
+------------------------------------------------------------------------------------------------------------------------------
+
+#if 1
+    while(true)
+    {
+        chip::DeviceLayer::PlatformMgr().LockChipStack();
+        int16_t temp = 0;
+        chip::app::Clusters::Test2Cluster::Attributes::TestAtt1::Get(2, &temp);
+        ESP_LOGE("T-Clus", "Get Att1 : %d\n\n", temp);
+        chip::DeviceLayer::PlatformMgr().UnlockChipStack();
+
+===========11111=================================
+        vTaskDelay(2000 / portTICK_PERIOD_MS);
+
+        chip::DeviceLayer::PlatformMgr().LockChipStack();
+        temp = 2022;
+        chip::app::Clusters::Test2Cluster::Attributes::TestAtt2::Set(2, static_cast<int16_t>(temp));
+        ESP_LOGE("T-Clus", "Set Att2 : %d\n\n", temp);
+        chip::DeviceLayer::PlatformMgr().UnlockChipStack();
+
+===========222222=================================
+        vTaskDelay(2000 / portTICK_PERIOD_MS);
+
+        chip::DeviceLayer::PlatformMgr().LockChipStack();
+        char data_str[32] = "";
+        chip::MutableCharSpan data = chip::MutableCharSpan(data_str, 32);
+        chip::app::Clusters::Test2Cluster::Attributes::TestAtt3::Get(2, data);
+        ESP_LOGE("T-Clus", "Get Att2 : %s\n\n", data.data());
+        chip::DeviceLayer::PlatformMgr().UnlockChipStack();
+
+===========333333=================================
+        vTaskDelay(2000 / portTICK_PERIOD_MS);
+    }
+#endif
