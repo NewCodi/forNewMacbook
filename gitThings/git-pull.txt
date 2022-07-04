@@ -1,0 +1,12 @@
+git config --global pull.ff only
+
+Explanation:
+git pull
+ - by default
+ - create a merge commit (if there's not error)
+  - confuse
+  - automatically create a history point
+
+- set pull.ff to only
+  - pull the content to your local
+  - fast-forwarded merge
