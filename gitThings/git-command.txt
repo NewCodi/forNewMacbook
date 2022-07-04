@@ -1,9 +1,5 @@
 git remote set-url origin ssh://git@gitlab.computime.com:2222/bg/ev-charger-with-matter.git
 
-git fetch
-
-git pull
-
 git remote set-url origin https://github.com/NewCodi/connectedhomeip.git
 
 git rebase -i "commit"
