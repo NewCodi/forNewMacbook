@@ -1,0 +1,33 @@
+//general config
+//flag for all repos
+--global
+
+git config --global user.name "New Codi"
+git config --global user.email "newcodingage@gmail.com"
+
+//commands
+git config --list
+
+git rebase -i "commit"
+**change the "pick" to "edit"
+
+//to change the current commit information
+git commit --amend --author="Allen YAU <allenyau@computime.com>"
+
+checkout branch-a
+rebase main
+(rebase the base-main-v0.8 of branch-a to base-main-v1.1)
+(when the base change from v0.8 to v1.1)
+
+
+//general alias
+git config --global alias.bl 'branch --list'
+git config --global alias.co 'checkout'
+git config --global alias.b 'branch'
+git config --global alias.st 'status'
+git config --global alias.cm 'commit'
+git config --global alias.ll "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+
+//computime gitlab address
+git remote set-url origin ssh://git@gitlab.computime.com:2222/bg/ev-charger-with-matter.git
